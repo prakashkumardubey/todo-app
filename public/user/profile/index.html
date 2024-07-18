@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+    <link rel="stylesheet" href="./profile.css">
+    <link rel="stylesheet" href="/assets/css/nav.css">
+    <script src="/assets/js/auth.js"></script>
+
+</head>
+
+<body>
+    <div id="messageBox" class="hidden">
+        <p id="messageText"></p>
+    </div>
+
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <span onclick="window.location='/'" class="app-title">TODO</span>
+        </div>
+        <div class="navbar-center">
+            <div class="navbar-links">
+                <a href="/task/">Task</a>
+                <a href="/tag/">Tag</a>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <div class="dropdown" onclick="toggleDropdown()">
+                <img src="/assets/images/profile.png" alt="Profile" class="dropdown-icon">
+                <div class="dropdown-content" id="dropdownContent">
+                    <a href="/user/profile/">Profile</a>
+                    <a id ="logout" >Logout</a>
+                    <a href="/user/change-password/">Change Password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Profile Content -->
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>User Profile</h1>
+        </div>
+        <div class="profile-content">
+            <div class="profile-picture">
+                <img id="profileImg" src="/assets/images/profile.png" alt="User Profile Picture">
+                <!-- <input type="file" id="photoUpload" accept="image/*"> -->
+            </div>
+            <div class="profile-details">
+                <div class="input-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" value="John Doe">
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="johndoe@example.com">
+                </div>
+                <button id="saveBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./profile.js"></script>
+    <script src="/assets/js/nav.js"></script>
+</body>
+
+</html>

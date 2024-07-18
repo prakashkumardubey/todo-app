@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="./tag.css">
+    <link rel="stylesheet" href="/assets/css/nav.css">
+    <script src="/assets/js/auth.js"></script>
+
+</head>
+
+<body>
+    <div id="messageBox" class="hidden">
+        <p id="messageText"></p>
+    </div>
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <span onclick="window.location='/'" class="app-title">TODO</span>
+        </div>
+        <div class="navbar-center">
+            <div class="navbar-links">
+                <a href="/task/">Task</a>
+                <a href="/tag/">Tag</a>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <div class="dropdown" onclick="toggleDropdown()">
+                <img src="/assets/images/profile.png" alt="Profile" class="dropdown-icon">
+                <div class="dropdown-content" id="dropdownContent">
+                    <a href="/user/profile/">Profile</a>
+                    <a id ="logout" >Logout</a>
+                    <a href="/user/change-password/">Change Password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="form-group">
+            <label for="tagName">Name:</label>
+            <input type="text" id="tagName" placeholder="Enter tag name">
+            <label for="tagDescription">Description:</label>
+            <input type="text" id="tagDescription" placeholder="Enter tag description">
+            
+            <button type="submit" onclick="addTag()"
+                style="background-color: #007bff; color: #ffffff; border: none; border-radius: 4px; padding: 10px 15px; cursor: pointer;"><i
+                    class="fas fa-plus"></i> Add Tag</button>
+            <!-- <div id="message"></div> -->
+        </div>
+
+        <div class="tag-container" id="tagContainer">
+            <!-- Tags will be inserted here -->
+        </div>
+    </div>
+
+    <script src="./tag.js"></script>
+    <script src="/assets/js/nav.js"></script>
+</body>
+
+</html>
