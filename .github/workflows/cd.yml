@@ -2,7 +2,7 @@ name: Deploy to AWS
 on:
   push:
     branches:
-      - "prakash-dubey"
+      - "main"
 env:
   AWS_REGION: ap-south-1
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
