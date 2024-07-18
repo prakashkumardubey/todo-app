@@ -46,7 +46,7 @@ jobs:
           key: ${{ env.PRIVATE_SSH_KEY }}
           envs: PRIVATE_SSH_KEY,REGISTRY,REPOSITORY,IMAGE_TAG,AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY,AWS_DEFAULT_REGION,AWS_REGION,MONGODB_URI,PORT,REFRESH_TOKEN_EXPIRY,REFRESH_TOKEN_SECRET,ACCESS_TOKEN_EXPIRY,ACCESS_TOKEN_SECRET
           script: |-
-            sudo $(aws ecr get-login --no-include-email --region ap-south-1);
+            echo $(aws ecr get-login-password --region ap-south-1) | sudo docker login --username AWS --password-stdin $REGISTRY
             sudo docker pull $REGISTRY/$REPOSITORY:$IMAGE_TAG
             sudo docker run -d --name todoappcontainer \
             -e MONGODB_URI="${MONGODB_URI}" \
