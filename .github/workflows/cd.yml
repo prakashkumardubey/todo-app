@@ -46,11 +46,6 @@ jobs:
           key: ${{ env.PRIVATE_SSH_KEY }}
           envs: PRIVATE_SSH_KEY,REGISTRY,REPOSITORY,IMAGE_TAG,AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY,AWS_DEFAULT_REGION,AWS_REGION,MONGODB_URI,PORT,REFRESH_TOKEN_EXPIRY,REFRESH_TOKEN_SECRET,ACCESS_TOKEN_EXPIRY,ACCESS_TOKEN_SECRET
           script: |-
-            sudo apt update
-            sudo apt install docker.io -y
-            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-            unzip awscliv2.zip
-            sudo ./aws/install
             sudo $(aws ecr get-login --no-include-email --region ap-south-1);
             sudo docker pull $REGISTRY/$REPOSITORY:$IMAGE_TAG
             sudo docker run -d --name todoappcontainer \
