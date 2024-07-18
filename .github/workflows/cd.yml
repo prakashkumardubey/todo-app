@@ -48,5 +48,4 @@ jobs:
           script: |-
             sudo apt update
             sudo apt install docker.io -y
-            sudo apt-get install awscli -y
-            sudo $(aws ecr get-login --no-include-email --region ap-south-1);
+            sudo apt install awscli -y
