@@ -51,5 +51,13 @@ jobs:
             curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
             unzip awscliv2.zip
             sudo ./aws/install
-            export PATH=$PATH:/usr/local/bin/aws
-            aws --version
+            sudo $(aws ecr get-login --no-include-email --region ap-south-1);
+            sudo docker pull $REGISTRY/$REPOSITORY:$IMAGE_TAG
+            sudo docker run -d --name todoappcontainer \
+            -e MONGODB_URI="${MONGODB_URI}" \
+            -e PORT="${PORT}" \
+            -e REFRESH_TOKEN_EXPIRY="${REFRESH_TOKEN_EXPIRY}" \
+            -e REFRESH_TOKEN_SECRET="${REFRESH_TOKEN_SECRET}" \
+            -e ACCESS_TOKEN_EXPIRY="${ACCESS_TOKEN_EXPIRY}" \
+            -e ACCESS_TOKEN_SECRET="${ACCESS_TOKEN_SECRET}" \
+            -p 80:8000 $REGISTRY/$REPOSITORY:$IMAGE_TAG
